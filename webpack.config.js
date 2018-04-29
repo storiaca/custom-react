@@ -5,7 +5,7 @@ const port = process.env.PORT || 3000;
 
 module.exports = {
     mode: 'development',
-    entry: '.src/index.js',
+    entry: './src/index.js',
     output: {
         filename: 'bundle.[hash].js'
     },
@@ -14,11 +14,16 @@ module.exports = {
         rules: [
             // First Rule
             {
-                test: /\.(js)$/,
+                test: /\.(js|jsx)$/,
                 exclude: /node_modules/,
                 use: ['babel-loader']
             },
 
+            // {
+            //     test: /\.(jsx)$/,
+            //     exclude: /node_modules/,
+            //     use: ['babel-loader']
+            // },
             // Second Rule
             {
                 test:/\.css$/,
@@ -38,10 +43,13 @@ module.exports = {
             }
         ]
     },
+    resolve: {
+        extensions: ['*', '.js', '.jsx']
+    },
     plugins: [
       new HtmlWebpackPlugin({
-          template: 'public/index.html',
-          favicon: 'public/favicon.ico'
+          template: 'public/index.html'
+          //favicon: 'public/favicon.ico'
       })  
     ],
     devServer: {
