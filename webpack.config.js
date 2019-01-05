@@ -14,16 +14,16 @@ module.exports = {
         rules: [
             // First Rule
             {
-                test: /\.(js|jsx)$/,
+                test: /\.(js)$/,
                 exclude: /node_modules/,
                 use: ['babel-loader']
             },
 
-            // {
-            //     test: /\.(jsx)$/,
-            //     exclude: /node_modules/,
-            //     use: ['babel-loader']
-            // },
+            {
+                test: /\.(jsx)$/,
+                exclude: /node_modules/,
+                use: ['babel-loader']
+            },
             // Second Rule
             {
                 test:/\.css$/,
